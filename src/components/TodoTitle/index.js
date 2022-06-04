@@ -1,6 +1,10 @@
+import './TodoTitle.css';
+
 function TodoTitle() {
     return (
-        <div></div>
+        <nav>
+            <h1 className='TodoTitle'>TODO MACHINE</h1>
+        </nav>
     );
 }
 

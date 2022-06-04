@@ -1,6 +1,10 @@
+import './TodoSearch.css';
+
 function TodoSearch() {
     return (
-        <div></div>
+        <section className='TodoSearch-Container'>
+            <input className='TodoSearch' type='text' placeholder='Buscar tarea' />
+        </section>
     );
 }
 

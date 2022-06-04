@@ -1,0 +1,12 @@
+.TodoSearch-Container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.TodoSearch {
+    width: 80%;
+    padding: 0.8em;
+    margin: 0 auto;
+    margin: 0 auto;
+}

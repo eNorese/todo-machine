@@ -1,6 +1,12 @@
-function TodoList() { 
+import './TodoList.css';
+
+function TodoList(props) { 
     return (
-        <div></div>
+        <section className='TodoList'>
+            <ul>
+                { props.children }
+            </ul>
+        </section>
     );
 }
 
