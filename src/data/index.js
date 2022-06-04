@@ -18,6 +18,11 @@ const todos = [
         id: 'e4dc48fa-a42c-40e6-b3d9-3cd8d150dfbb',
         text: 'Entrenar pectorales',
         completed: true
+    },
+    {
+        id: 'e4dc48fa-a4asd-40e6-b3d9-3cd8d150dfbb',
+        text: 'Tomar awa de uwu',
+        completed: true
     }
 ];
 

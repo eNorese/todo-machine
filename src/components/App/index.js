@@ -7,10 +7,15 @@ import { TodoItem } from '../TodoItem';
 import { CreateTodoButton } from '../CreateTodoButton';
 
 function App() {
+    const totalTodos = todos.length;
+    const totalCompleted = todos.filter(todo => todo.completed).length;
+    console.log(totalTodos);
+    console.log(totalCompleted);
+
     return (
         <>
             <TodoTitle />
-            <TodoCounter />
+            <TodoCounter totalTodos={ totalTodos } totalCompleted={ totalCompleted } />
             <TodoSearch />
 
             <TodoList>
