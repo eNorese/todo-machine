@@ -11,7 +11,8 @@ function TodoItem(props) {
 
             <p className='TodoItem-p'>{ props.text }</p>
 
-            <span className='Icon Icon-check'>
+            <span className='Icon Icon-check' onClick={props.onDelete}>
+                
                 <FontAwesomeIcon icon={ faTrash } color='gray' />
             </span>
         </li>
