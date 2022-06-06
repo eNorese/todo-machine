@@ -18,14 +18,23 @@
     align-items: center;
 }
 
-.Icon-check, .Icon-delete {
+.Icon {
     font-size: 1.5em;
 }
 
-.Icon-check {
-    justify-self: flex-end;
+.Icon:hover {
+    cursor: pointer;
+}
+
+.Icon-delete {
+    cursor: pointer;
+    transition: all .4s ease;
 }
 
 .Icon-delete:hover {
-    color: red;
+    color: #AD2525;
+    transition: all .4s ease;
+}
+.icono {
+    color: orange;
 }

@@ -5,15 +5,14 @@ import './TodoItem.css';
 function TodoItem(props) {
     return (
         <li className='TodoItem'>
-            <span className='Icon Icon-check'>
-                <FontAwesomeIcon icon={ faCircleCheck } color={ props.completed ? '#009D10' : 'gray' } />
+            <span className='Icon'>
+                <FontAwesomeIcon onClick={props.completeTodo} className='Icon-check' icon={ faCircleCheck } color={ props.completed ? '#009D10' : 'gray' } />
             </span>
 
             <p className='TodoItem-p'>{ props.text }</p>
 
-            <span className='Icon Icon-delete' onClick={props.onDelete}>
-                
-                <FontAwesomeIcon icon={ faTrash } color='gray' />
+            <span className='Icon' onClick={props.onDelete}>
+                <FontAwesomeIcon className='Icon-delete' icon={ faTrash } color='gray' />
             </span>
         </li>
     );
