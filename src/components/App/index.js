@@ -14,6 +14,7 @@ function App() {
     const [searchValue, setSearchValue] = useState('');
     const [todos, setTodos] = useState(defaultTodos);
     const [modalVisibility, setModalVisibility] = useState('Modal-hidden');
+    const [modalText, setModalText] = useState('');
 
     const totalTodos = todos.length;
     const totalCompleted = todos.filter(todo => todo.completed).length;
@@ -31,6 +32,8 @@ function App() {
         const newTodo = { id: uuidv4(), text, completed: false };
         updatedTodos.push(newTodo);
         setTodos(updatedTodos);
+        setModalVisibility('Modal-hidden');
+        setModalText('');
     }
 
     let searchedTodos = [];
@@ -62,7 +65,13 @@ function App() {
             </TodoList>
 
             <CreateTodoButton setModalVisibility={setModalVisibility} />
-            <Modal addTodo={addTodo} modalVisibility={modalVisibility}  setModalVisibility={setModalVisibility}/>
+            <Modal 
+                addTodo={addTodo}
+                modalText={modalText}
+                setModalText={setModalText}
+                modalVisibility={modalVisibility}
+                setModalVisibility={setModalVisibility}
+            />
         </>
     );
 }
