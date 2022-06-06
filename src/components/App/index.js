@@ -7,12 +7,19 @@ import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { Modal } from '../Modal'
-import defaultTodos from '../../data'
 
 function App() {
+    const localStorageItemName = 'TODOS_V1';
+    const localStorageTodos = localStorage.getItem(localStorageItemName);
+    let parsedTodos = [];
+
+    if(!localStorageTodos)
+        localStorage.setItem(localStorageItemName, JSON.stringify(parsedTodos));
+    else
+        parsedTodos = JSON.parse(localStorageTodos);
     
     const [searchValue, setSearchValue] = useState('');
-    const [todos, setTodos] = useState(defaultTodos);
+    const [todos, setTodos] = useState(parsedTodos);
     const [modalVisibility, setModalVisibility] = useState('Modal-hidden');
     const [modalText, setModalText] = useState('');
 
@@ -24,6 +31,7 @@ function App() {
         const newTodos = [...todos];
         newTodos.splice(todoIndex, 1);
         setTodos(newTodos);
+        saveTodos(newTodos);
     }
 
     const addTodo = (event, text) => {
@@ -34,6 +42,7 @@ function App() {
         setTodos(updatedTodos);
         setModalVisibility('Modal-hidden');
         setModalText('');
+        saveTodos(updatedTodos);
     }
 
     const completeTodo = (todoId) => {
@@ -41,7 +50,13 @@ function App() {
         const updatedTodos = [...todos];
         updatedTodos[todoIndex].completed = !updatedTodos[todoIndex].completed;
         setTodos(updatedTodos);
+        saveTodos(updatedTodos);
     }
+
+    const saveTodos = (todos) => {
+        const stringifiedTodos = JSON.stringify(todos);
+        localStorage.setItem(localStorageItemName, stringifiedTodos)
+    };
     
 
     let searchedTodos = [];
