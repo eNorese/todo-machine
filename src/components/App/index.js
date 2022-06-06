@@ -33,14 +33,25 @@ function App() {
         setTodos(updatedTodos);
     }
 
+    let searchedTodos = [];
+    if(searchValue.length === 0) {
+        searchedTodos = todos;
+    } else {
+        searchedTodos = todos.filter(todo => {
+            const todoText = todo.text.toLowerCase();
+            const searchText = searchValue.toLocaleLowerCase();
+            return todoText.includes(searchText);
+        });
+    }
+
     return (
         <>
             <TodoTitle />
-            <TodoCounter totalTodos={ totalTodos } totalCompleted={ totalCompleted } />
-            <TodoSearch searchValue={ searchValue } setSearchValue={ setSearchValue } />
+            <TodoCounter totalTodos={totalTodos} totalCompleted={totalCompleted} />
+            <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
             <TodoList>
-                { todos.map(todo => (
+                { searchedTodos.map(todo => (
                     <TodoItem
                         key={ todo.id }
                         text={ todo.text }
