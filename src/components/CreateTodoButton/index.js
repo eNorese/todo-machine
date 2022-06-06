@@ -1,8 +1,8 @@
 import './CreateTodoButton.css';
 
-function CreateTodoButton() {
+function CreateTodoButton({ setModalVisibility }) {
     return (
-        <span className='CreateTodoButton'>+</span>
+        <span onClick={() => setModalVisibility('Modal-visible')} className='CreateTodoButton'>+</span>
     );
 }
 
